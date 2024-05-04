@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+
+    #display {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #008CBA;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stopwatch</h1>
+    <p id="display">00:00:00</p>
+    <button class="btn btn-primary" onclick="start()">Start</button>
+    <button class="btn btn-secondary" onclick="stop()">Stop</button>
+    <button class="btn btn-primary" onclick="reset()">Reset</button>
+  </div>
+
+  <script>
+    let timer;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+
+    function start() {
+      clearInterval(timer);
+      timer = setInterval(updateDisplay, 1000);
+    }
+
+    function stop() {
+      clearInterval(timer);
+    }
+
+    function reset() {
+      clearInterval(timer);
+      hours = 0;
+      minutes = 0;
+      seconds = 0;
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      seconds++;
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+      }
+      let display = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+      document.getElementById('display').textContent = display;
+    }
+
+    function pad(number) {
+      return (number < 10 ? '0' : '') + number;
+    }
+  </script>
+</body>
+</html>
