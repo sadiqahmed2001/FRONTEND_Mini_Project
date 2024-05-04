@@ -1,0 +1,22 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #87CEEB; /* Light blue */
+      overflow: hidden;
+    }
+
+    .bubble {
+      width: 60px;
+      height: 60px;
+      background-color: #FFA07A; /* Light salmon */
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+      animation: floatBubble 5s infinite alternate;
+    }
+
+    @keyframes floatBubble {
+      from { transform: translateY(0); }
+      to { transform: translateY(-500px); }
+    }
