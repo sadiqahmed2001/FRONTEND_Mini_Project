@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Headlines</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .article {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .article img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Top Headlines</h1>
+    <div id="articles"></div>
+  </div>
+  
+  <script>
+    fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_API_KEY")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch articles. Status: " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.articles && data.articles.length > 0) {
+            const articles = data.articles;
+            const articlesContainer = document.getElementById("articles");
+            articles.forEach(article => {
+                const articleDiv = document.createElement("div");
+                articleDiv.classList.add("article");
+
+                const title = document.createElement("h2");
+                title.textContent = article.title;
+                
+                const image = document.createElement("img");
+                image.src = article.urlToImage;
+                image.alt = article.title;
+                
+                const description = document.createElement("p");
+                description.textContent = article.description;
+                
+                const source = document.createElement("p");
+                source.textContent = `Source: ${article.source.name}`;
+                
+                const publishedAt = document.createElement("p");
+                publishedAt.textContent = `Published At: ${new Date(article.publishedAt).toLocaleString()}`;
+                
+                articleDiv.appendChild(title);
+                articleDiv.appendChild(image);
+                articleDiv.appendChild(description);
+                articleDiv.appendChild(source);
+                articleDiv.appendChild(publishedAt);
+                
+                articlesContainer.appendChild(articleDiv);
+            });
+        } else {
+            throw new Error("No articles found.");
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching articles:", error);
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = "Error fetching articles. Please try again later.";
+        document.getElementById("articles").appendChild(errorMessage);
+    });
+    
+    </script>
+</body>
+</html>
