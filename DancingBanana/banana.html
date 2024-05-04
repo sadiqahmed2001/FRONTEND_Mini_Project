@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dancing Banana</title>
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f5f5f5;
+    }
+
+    #banana {
+      width: 200px;
+      margin: 50px auto;
+      cursor: pointer;
+    }
+
+    .dancing {
+      animation: dance 0.5s infinite alternate;
+    }
+
+    @keyframes dance {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+  <img id="banana" src="banana.png" alt="Dancing Banana" onclick="startDance()">
+
+  <script>
+    function startDance() {
+  let banana = document.getElementById('banana');
+  banana.classList.toggle('dancing');
+}
+  </script>
+  
+
+</body>
+</html>
