@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One-Page Website</title>
+<link rel="stylesheet" href="./style.css">
+<style>
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+/* Hero section styles */
+.hero {
+  background-image: linear-gradient(to bottom, #3498db, #2c3e50);
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+  position: relative;
+}
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.hero .cta {
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hero .cta:hover {
+  background-color: #ddd;
+}
+/* About section styles */
+.about {
+  background-image: linear-gradient(to bottom, #27ae60, #2ecc71);
+  padding: 100px 0;
+  text-align: center;
+  color: #fff;
+}
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.about p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* Services section styles */
+.services {
+  background-image: linear-gradient(to bottom, #f39c12, #f1c40f);
+  padding: 100px 0;
+  text-align: center;
+  color: #fff;
+}
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.services .service {
+  display: inline-block;
+  width: 30%;
+  margin: 0 2%;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  vertical-align: top;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.services .service:hover {
+  background-color: #f0f0f0;
+}
+.services .service h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.services .service p {
+  font-size: 16px;
+}
+/* Portfolio section styles */
+.portfolio {
+  background-image: linear-gradient(to bottom, #e74c3c, #c0392b);
+  padding: 100px 0;
+  text-align: center;
+  color: #fff;
+}
+.portfolio h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.portfolio .project {
+  display: inline-block;
+  width: 30%;
+  margin: 0 2%;
+  margin-bottom: 20px;
+  position: relative;
+}
+.portfolio .project div {
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+.portfolio .project .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio .project:hover .overlay {
+  opacity: 1;
+}
+.portfolio .project .overlay h3 {
+  color: #fff;
+  font-size: 24px;
+}
+/* Contact section styles */
+.contact {
+  background-image: linear-gradient(to bottom, #9b59b6, #8e44ad);
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.contact p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+.contact button {
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.contact button:hover {
+  background-image: linear-gradient(to bottom, #2980b9, #1f618d);
+}
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Website</h1>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <h2>Welcome to My Website</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at libero neque.</p>
+  <a href="#contact" class="cta">Get in Touch</a>
+</section>
+
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at libero neque.</p>
+</section>
+
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <div class="service">
+    <h3>Service 1</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="service">
+    <h3>Service 2</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="service">
+    <h3>Service 3</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <h2>Our Portfolio</h2>
+  <div class="project">
+    <div class="overlay">
+      <h3>Project 1</h3>
+    </div>
+  </div>
+  <div class="project">
+    <div class="overlay">
+      <h3>Project 2</h3>
+    </div>
+  </div>
+  <div class="project">
+    <div class="overlay">
+      <h3>Project 3</h3>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-info">
+    <p>Email: info@example.com</p>
+    <p>Phone: +91 ----------</p>
+  </div>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2024 Sadiq Ahmed. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // we can add our code here to handle form submission, such as sending an email or saving data to a database
+    alert('Form submitted!');
+  });
+  </script>
+
+</body>
+</html>
+</html>
