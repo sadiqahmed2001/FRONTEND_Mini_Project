@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminder Notification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="time"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Set Reminder</h1>
+    <input type="text" id="reminderMessage" placeholder="Enter your reminder message">
+    <input type="time" id="reminderTime">
+    <button onclick="setReminder()">Set Reminder</button>
+  </div>
+  
+  <script>
+    function setReminder() {
+      const reminderMessage = document.getElementById("reminderMessage").value.trim();
+      const reminderTime = document.getElementById("reminderTime").value;
+
+      if (!reminderMessage || !reminderTime) {
+        alert("Please enter both reminder message and time.");
+        return;
+      }
+
+      const currentTime = new Date();
+      const selectedTime = new Date();
+      const [hours, minutes] = reminderTime.split(":");
+      selectedTime.setHours(hours);
+      selectedTime.setMinutes(minutes);
+      selectedTime.setSeconds(0);
+
+      const timeDifference = selectedTime.getTime() - currentTime.getTime();
+      if (timeDifference <= 0) {
+        alert("Please select a future time for the reminder.");
+        return;
+      }
+
+      setTimeout(() => {
+        alert(reminderMessage);
+      }, timeDifference);
+    }
+  </script>
+</body>
+</html>
+
+
