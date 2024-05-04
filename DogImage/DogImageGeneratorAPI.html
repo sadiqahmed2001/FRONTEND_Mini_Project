@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Dog Image Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Random Dog Image Generator</h1>
+    <img id="dog-image" src="" alt="Random Dog Image">
+    <button onclick="getRandomDogImage()">Get Random Dog Image</button>
+  </div>
+  
+  <script>
+    function getRandomDogImage() {
+      fetch("https://dog.ceo/api/breeds/image/random")
+        .then(response => response.json())
+        .then(data => {
+          const imageUrl = data.message;
+          document.getElementById("dog-image").src = imageUrl;
+        })
+        .catch(error => {
+          console.error("Error fetching dog image:", error);
+          alert("Error fetching dog image. Please try again.");
+        });
+    }
+  </script>
+</body>
+</html>
