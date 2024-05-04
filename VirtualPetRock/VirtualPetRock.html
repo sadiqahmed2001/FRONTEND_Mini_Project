@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Pet Rock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+
+    #rock {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    #actions {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .action-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Virtual Pet Rock</h1>
+    <img id="rock" src="Rock.png" alt="Rock">
+    <div id="actions">
+      <button class="action-btn" onclick="feed()">Feed</button>
+      <button class="action-btn" onclick="pet()">Pet</button>
+      <button class="action-btn" onclick="play()">Play</button>
+    </div>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function feed() {
+      displayMessage("You tried to feed your pet rock, but it's a rock...");
+    }
+
+    function pet() {
+      displayMessage("You lovingly pet your pet rock. It doesn't seem to notice.");
+    }
+
+    function play() {
+      displayMessage("You play with your pet rock. It remains unresponsive.");
+    }
+
+    function displayMessage(message) {
+      document.getElementById('message').textContent = message;
+    }
+  </script>
+</body>
+</html>
