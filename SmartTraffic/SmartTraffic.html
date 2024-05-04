@@ -1,0 +1,84 @@
+<br><br><br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Traffic Control System</title>
+  <style>
+    #traffic-signal {
+      width: 100px;
+      height: 300px;
+      background-color: black;
+      border-radius: 15px;
+      margin: 50px auto;
+      position: relative;
+    }
+
+    .signal {
+      width: 60px;
+      height: 60px;
+      background-color: grey;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .green {
+        background-color: green;
+      bottom: 30px;
+    }
+
+    .red {
+        background-color: red;
+      top: 30px;
+    }
+
+    .yellow {
+        background-color: yellow;
+        top: calc(50% - 30px); /* Place yellow in the middle */
+    }
+  </style>
+</head>
+<body>
+  <div id="traffic-signal"></div>
+  <script>
+    const trafficSignal = document.getElementById('traffic-signal');
+
+    function changeSignal() {
+      const signal = document.createElement('div');
+      signal.classList.add('signal');
+      
+      // Change signal to green
+      signal.classList.add('green');
+      trafficSignal.appendChild(signal);
+      
+      setTimeout(() => {
+        // Change signal to red after 5 seconds
+        signal.classList.remove('green');
+        signal.classList.add('red');
+        setTimeout(() => {
+          // Change signal to yellow after 5 seconds of red
+          signal.classList.remove('red');
+          signal.classList.add('yellow');
+          setTimeout(() => {
+            // Remove yellow signal after 3 seconds
+            signal.remove();
+          }, 3000);
+        }, 5000);
+      }, 5000);
+    }
+
+    // Change signal initially
+    changeSignal();
+
+    // Change signal every 13 seconds (5s green + 5s red + 3s yellow)
+    setInterval(() => {
+      changeSignal();
+    }, 13000);
+  </script>
+</body>
+</html>
+
