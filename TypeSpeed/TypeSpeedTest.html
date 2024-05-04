@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #sentence {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    #result {
+      font-size: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Speed Test</h1>
+    <p>Type the following sentence as fast as you can:</p>
+    <div id="sentence"></div>
+    <input type="text" id="input" placeholder="Start typing here..." autocomplete="off">
+    <button onclick="startTest()">Start Test</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const sentences = [
+      "The quick brown fox jumps over the lazy dog.",
+      "Pack my box with five dozen liquor jugs.",
+      "How razorback-jumping frogs can level six piqued gymnasts!",
+      "Crazy Fredericka bought many very exquisite opal jewels.",
+      "Six big devils from Japan quickly forgot how to waltz."
+    ];
+
+    function startTest() {
+      let randomIndex = Math.floor(Math.random() * sentences.length);
+      let sentence = sentences[randomIndex];
+      document.getElementById('sentence').textContent = sentence;
+      
+      let input = document.getElementById('input');
+      input.value = '';
+      input.focus();
+      input.disabled = false;
+      input.removeEventListener('input', calculateWPM);
+
+      let result = document.getElementById('result');
+      result.textContent = '';
+
+      input.addEventListener('input', calculateWPM);
+    }
+
+    function calculateWPM() {
+      let input = document.getElementById('input');
+      let typedWords = input.value.trim().split(/\s+/).length;
+      let timeInSeconds = (new Date() - startTime) / 1000;
+      let WPM = Math.round((typedWords / timeInSeconds) * 60);
+      document.getElementById('result').textContent = `Your typing speed: ${WPM} WPM`;
+    }
+
+    let startTime;
+    function startTest() {
+      let randomIndex = Math.floor(Math.random() * sentences.length);
+      let sentence = sentences[randomIndex];
+      document.getElementById('sentence').textContent = sentence;
+      
+      let input = document.getElementById('input');
+      input.value = '';
+      input.focus();
+      input.disabled = false;
+      input.removeEventListener('input', calculateWPM);
+
+      let result = document.getElementById('result');
+      result.textContent = '';
+
+      startTime = new Date();
+      input.addEventListener('input', calculateWPM);
+    }
+  </script>
+</body>
+</html>
