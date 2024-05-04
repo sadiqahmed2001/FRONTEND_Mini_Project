@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+
+  .card {
+    width: 100px;
+    height: 150px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
