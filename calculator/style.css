@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .btn {
+    width: 25%;
+    padding: 15px;
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .btn-operand {
+    background-color: #f0f0f0;
+  }
+
+  .btn-operator {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .btn-equal {
+    background-color: #008CBA;
+    color: white;
+  }
