@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Station Astronauts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Space Station Astronauts</h1>
+    <ul id="astronauts-list"></ul>
+  </div>
+  
+  <script>
+    fetch("http://api.open-notify.org/astros.json")
+      .then(response => response.json())
+      .then(data => {
+        const astronauts = data.people;
+        const astronautList = document.getElementById("astronauts-list");
+
+        astronauts.forEach(astronaut => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${astronaut.name} - Craft: ${astronaut.craft}`;
+          astronautList.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching astronaut data:", error);
+        const errorText = document.createElement("li");
+        errorText.textContent = "Error fetching astronaut data. Please try again.";
+        document.getElementById("astronauts-list").appendChild(errorText);
+      });
+  </script>
+</body>
+</html>
