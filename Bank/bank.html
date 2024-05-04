@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Banking App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="number"] {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #balance {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Banking App</h1>
+    <div id="balance">Balance: $<span id="balanceAmount">1000</span></div>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+  
+  <script>
+    let balance = 1000;
+
+function updateBalance() {
+  document.getElementById("balanceAmount").textContent = balance.toFixed(2);
+}
+
+function deposit() {
+  const amount = parseFloat(document.getElementById("amount").value);
+  if (isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+  balance += amount;
+  updateBalance();
+  alert(`Successfully deposited $${amount.toFixed(2)}`);
+  document.getElementById("amount").value = "";
+}
+
+function withdraw() {
+  const amount = parseFloat(document.getElementById("amount").value);
+  if (isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+  if (amount > balance) {
+    alert("Insufficient funds.");
+    return;
+  }
+  balance -= amount;
+  updateBalance();
+  alert(`Successfully withdrew $${amount.toFixed(2)}`);
+  document.getElementById("amount").value = "";
+}
+  </script>
+</body>
+</html>
+
+
+<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM Machine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="number"] {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #balance {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ATM Machine</h1>
+    <div id="balance">Balance: $<span id="balanceAmount">1000</span></div>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+  
+  <script>
+    let Balance = 1000;
+
+    function updateBalance() {
+      document.getElementById("balanceAmount").textContent = balance.toFixed(2);
+    }
+
+    function withdraw() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+      if (amount > balance) {
+        alert("Insufficient funds.");
+        return;
+      }
+      balance -= amount;
+      updateBalance();
+      alert(`Successfully withdrew $${amount.toFixed(2)}`);
+      document.getElementById("amount").value = "";
+    }
+  </script>
+</body>
+</html>
+
+
+<br><br><br><br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking and ATM Machine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .balance {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Banking App</h1>
+    <div class="balance">Balance: $<span id="bankBalance">1000</span></div>
+    <input type="number" id="bankAmount" placeholder="Enter amount">
+    <button onclick="bankDeposit()">Deposit</button>
+    <button onclick="bankWithdraw()">Withdraw</button>
+  </div>
+
+  <div class="container">
+    <h1>ATM Machine</h1>
+    <div class="balance">Balance: $<span id="atmBalance">1000</span></div>
+    <input type="number" id="atmAmount" placeholder="Enter amount">
+    <button onclick="atmWithdraw()">Withdraw</button>
+  </div>
+  
+  <script>
+    let bankBalance = 1000;
+    let atmBalance = 1000;
+
+    function updateBankBalance() {
+      document.getElementById("bankBalance").textContent = bankBalance.toFixed(2);
+    }
+
+    function updateATMBalance() {
+      document.getElementById("atmBalance").textContent = atmBalance.toFixed(2);
+    }
+
+    function bankDeposit() {
+      const amount = parseFloat(document.getElementById("bankAmount").value);
+      if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+      bankBalance += amount;
+      updateBankBalance();
+      alert(`Successfully deposited $${amount.toFixed(2)}`);
+      document.getElementById("bankAmount").value = "";
+    }
+
+    function bankWithdraw() {
+      const amount = parseFloat(document.getElementById("bankAmount").value);
+      if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+      if (amount > bankBalance) {
+        alert("Insufficient funds.");
+        return;
+      }
+      bankBalance -= amount;
+      updateBankBalance();
+      alert(`Successfully withdrew $${amount.toFixed(2)}`);
+      document.getElementById("bankAmount").value = "";
+    }
+
+    function atmWithdraw() {
+      const amount = parseFloat(document.getElementById("atmAmount").value);
+      if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+      if (amount > atmBalance) {
+        alert("Insufficient funds.");
+        return;
+      }
+      atmBalance -= amount;
+      updateATMBalance();
+      alert(`Successfully withdrew $${amount.toFixed(2)}`);
+      document.getElementById("atmAmount").value = "";
+    }
+  </script>
+</body>
+</html>
+
+
+
