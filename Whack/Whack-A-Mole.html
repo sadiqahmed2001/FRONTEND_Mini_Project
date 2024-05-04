@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whack-a-Mole</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #00ccff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      position: relative;
+    }
+
+    .hole {
+      width: 100px;
+      height: 100px;
+      background-color: #8B4513; /* Brown */
+      border-radius: 50%;
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .mole {
+      width: 80px;
+      height: 80px;
+      background-color: #D2B48C; /* Tan */
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hole" onclick="whack(event)"></div>
+    <div class="hole" onclick="whack(event)"></div>
+    <div class="hole" onclick="whack(event)"></div>
+    <div class="hole" onclick="whack(event)"></div>
+    <div class="hole" onclick="whack(event)"></div>
+    <div class="hole" onclick="whack(event)"></div>
+  </div>
+
+  <script>
+    let score = 0;
+
+    function whack(event) {
+      if (event.target.classList.contains('mole')) {
+        score++;
+        updateScore();
+        event.target.style.display = 'none';
+      }
+    }
+
+    function updateScore() {
+      document.body.style.backgroundColor = '#ffcc00'; /* Yellow */
+      setTimeout(() => {
+        document.body.style.backgroundColor = '#00ccff'; /* Back to Blue */
+      }, 100);
+
+      document.getElementById('score').textContent = score;
+    }
+
+    function popUpRandomMole() {
+      let holes = document.getElementsByClassName('hole');
+      let randomHoleIndex = Math.floor(Math.random() * holes.length);
+      let randomHole = holes[randomHoleIndex];
+
+      let mole = randomHole.querySelector('.mole');
+      mole.style.display = 'block';
+
+      setTimeout(() => {
+        mole.style.display = 'none';
+        setTimeout(popUpRandomMole, Math.random() * 2000 + 500);
+      }, Math.random() * 1000 + 500);
+    }
+
+    popUpRandomMole();
+  </script>
+</body>
+</html>
