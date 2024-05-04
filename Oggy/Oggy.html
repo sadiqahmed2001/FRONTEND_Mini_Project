@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oggy and the Cockroaches Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Oggy and the Cockroaches Quiz</h1>
+    <p>Guess the name of the character:</p>
+    <input type="text" id="guess" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Check</button>
+    <p id="result"></p>
+  </div>
+  
+  <script>
+    const characters = ["Oggy", "Joey", "Dee Dee", "Marky", "Jack"];
+    const randomCharacter = characters[Math.floor(Math.random() * characters.length)];
+
+    function checkGuess() {
+      const guess = document.getElementById("guess").value.trim();
+      const resultElement = document.getElementById("result");
+
+      if (guess === randomCharacter) {
+        resultElement.textContent = "Congratulations! You guessed correctly.";
+      } else {
+        resultElement.textContent = "Sorry, wrong guess. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
+
