@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crazy Cat Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+
+    #cat {
+      width: 200px;
+      margin-bottom: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .action-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Crazy Cat Game</h1>
+    <img id="cat" src="cat.png" alt="Crazy Cat">
+    <div>
+      <button class="action-btn" onclick="moveCat('left')">Left</button>
+      <button class="action-btn" onclick="moveCat('right')">Right</button>
+      <button class="action-btn" onclick="moveCat('up')">Up</button>
+      <button class="action-btn" onclick="moveCat('down')">Down</button>
+      <button class="action-btn" onclick="spinCat()">Spin</button>
+    </div>
+  </div>
+
+  <script>
+    function moveCat(direction) {
+      let cat = document.getElementById('cat');
+      let transformValue = '';
+
+      switch (direction) {
+        case 'left':
+          transformValue = 'translateX(-50px)';
+          break;
+        case 'right':
+          transformValue = 'translateX(50px)';
+          break;
+        case 'up':
+          transformValue = 'translateY(-50px)';
+          break;
+        case 'down':
+          transformValue = 'translateY(50px)';
+          break;
+      }
+
+      cat.style.transform = transformValue;
+    }
+
+    function spinCat() {
+      let cat = document.getElementById('cat');
+      cat.style.transform += ' rotate(360deg)';
+    }
+  </script>
+</body>
+</html>
