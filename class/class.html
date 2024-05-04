@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Content</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    table{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .box {
+            width: 30%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box h2 {
+            color: #333;
+        }
+
+        .box p {
+            color: #666;
+        }
+    </style>
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="https://www.youtube.com/hashtag/doremon">Home</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Doraemon">About</a></li>
+                <li><a href="https://cars.tatamotors.com/service.html">Services</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.google.android.contacts&hl=en&gl=US">Contact</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Doraemon">History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Doraemon Team Fom another universe</p>
+        </section>
+        <img src="doremon.png" style="width: 400px;">
+        <p>Doraemon (ドラえもん) is a Japanese manga series written and illustrated by Fujiko F. Fujio. The manga was first serialized in December 1969.
+             Its chapters were collected in 45 tankōbon volumes published by Shogakukan from 1974 to 1996. 
+            The story revolves around an earless robotic cat named Doraemon, who travels back in time from the 22nd century to aid a boy named Nobita Nobi.
+
+            The manga spawned a media franchise. Three anime TV series have been adapted in 1973, 1979, and 2005. 
+            Additionally, Shin-Ei Animation has produced over forty animated films, including two 3D computer-animated films, all of which are distributed by Toho.
+            Various types of merchandise and media have been developed, including soundtrack albums, video games, and musicals. 
+            The manga series was licensed for an English language release in North America, via Amazon Kindle, by a collaboration of Fujiko F. 
+            Fujio Pro with Voyager Japan and AltJapan Co., Ltd. The anime series was licensed by Disney for an English-language release in North America in 2014, and LUK International in Europe, the Middle East and Africa.
+            
+            Doraemon was well-received by critics and became a hit in many Asian countries. It won numerous awards, including the Japan Cartoonists Association Award in 1973 and 1994, the Shogakukan Manga Award for children's manga in 1982, 
+            and the Tezuka Osamu Cultural Prize in 1997. By 2019, it has sold over 250 million copies worldwide, becoming one of the best-selling manga series of all time. The character of Doraemon has been viewed as a Japanese cultural icon, 
+            and was appointed as the first "anime ambassador" in 2008 by the country's Foreign Ministry.</p>
+    </main>
+    <br><br><br>
+    <hr>
+    <form action="submit" method="GET" target="_blank" enctype="multipart/form-data" >
+        <h1 align="center">Information Center<Center>Engg</Center></h1>
+        <fieldset>
+        <table align="center" border="1" style="background-color: skyblue; width: 600px;">
+            <tr>
+                <th colspan="2">Student Register Form</th>
+            </tr>
+            <tr>
+                
+                <td><label for="1">Name</label></td>
+                <td><input type="text" name="Sname" placeholder="enter your name" required id="1"></td>
+            </tr>
+            <tr>
+                <td><label for="2">Father_name</label></td>
+                <td><input type="text" name="fname" placeholder="enter your father name" required id="2"></td>
+            </tr>
+            <tr>
+                <td><label for="3">Mother_name</label></td>
+                <td><input type="text" name="mother" placeholder="enter your mother name" required id="3"></td>
+            </tr>
+            <tr>
+                <td>mobile no</td>
+                <td><input type="number" name="mobile no" placeholder="enter your mobile number"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="password" name="password" placeholder="enter your password"></td>
+            </tr>
+            <tr>
+                <td>Date of birth</td>
+                <td><input type="date" name="DOB" placeholder="DOB"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="email" placeholder="enter your gmail"></td>
+            </tr>
+            <tr>
+                <td><label for="4">Marriage</label></td>
+                <td><input type="text" name="marriage" placeholder="Biha Ho Gaya Hay"></td>
+            </tr>
+            <tr>
+                <td><label for="5">Address</label></td>
+                <td><input type="text" placeholder="enter your permanent address"></td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td><select name="select" id="">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O">O</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select></td>
+
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td><input type="file" name="photo" placeholder="upload your file"></td>
+            </tr>
+            <tr>
+                <td>course</td>
+                <td><select name="course" id="">
+                    <option value="DSDA">DSDA</option>
+                    <option value="FSD">FSD</option>
+                    <option value="DSE">DSE</option>
+                    <option value="java-DSA">DSA-jsva</option>
+                    <option value="Machine_learning">ML</option>
+                    <option value="Artifical_intelligence">AI</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td><input type="radio" name="GENDER" value="male" id="10"> <label for="10">Male</label>
+                    <input type="radio" name="GENDER" value="female" id="12"> <label for="12">Female</label>
+                
+                </td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td><input type="radio" name="Department" value="EEE" id="22"><label for="22">EEE</label>
+                <input type="radio" name="Department" value="ME" id="21"><label for="21">ME</label>
+                <input type="radio" name="Department" value="CS" id="21"><label for="20">CS</label>
+                </td>
+            </tr>
+            <tr>
+                <td>skills</td>
+                <td><input type="checkbox" name="skill" value="python" id="3"> <label for="3">python</label>
+                    <input type="checkbox"name="skill"value="java-DSA"id="4"><label for="4">java-DSA</label>
+                    <input type="checkbox" name="skill" value="c++"id="5"><label for="5">c++</label>
+                    <input type="checkbox"name="skill"value="html"id="6"><label for="6">html</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="save">
+                <input type="reset"></td>
+
+            </tr>
+        </table>
+        </fieldset>
+    </form>
+
+    <br><br><br><br><br>
+    <hr>
+    <div class="container">
+        <div class="box">
+            <h2>Menu</h2>
+            <p><a href="https://www.youtube.com/hashtag/doremon">Home</a></p>
+        </div>
+        <div class="box">
+            <h2>Contact Us</h2>
+            <p>Phone: 123-456-789<br>Email: contact@example.com <br><a href="https://play.google.com/store/apps/details?id=com.google.android.contacts&hl=en&gl=US">Contact</a></p>
+        </div>
+        <div class="box">
+            <h2>About Us</h2>
+            <p><a href="https://en.wikipedia.org/wiki/Doraemon">About Us</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
