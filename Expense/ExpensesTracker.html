@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    select {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #expenseList {
+      text-align: left;
+    }
+
+    .expense {
+      margin-bottom: 10px;
+    }
+
+    .expense span {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    <input type="text" id="expenseName" placeholder="Enter expense name">
+    <input type="number" id="expenseAmount" placeholder="Enter expense amount">
+    <select id="expenseCategory">
+      <option value="Food">Food</option>
+      <option value="Transportation">Transportation</option>
+      <option value="Utilities">Utilities</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Other">Other</option>
+    </select>
+    <button onclick="addExpense()">Add Expense</button>
+    <div id="expenseSummary"></div>
+    <div id="expenseList"></div>
+  </div>
+  
+  <script>
+    const expenses = [];
+
+    function addExpense() {
+      const expenseName = document.getElementById("expenseName").value.trim();
+      const expenseAmount = parseFloat(document.getElementById("expenseAmount").value);
+      const expenseCategory = document.getElementById("expenseCategory").value;
+
+      if (!expenseName || isNaN(expenseAmount) || expenseAmount <= 0) {
+        alert("Please enter a valid expense name and amount.");
+        return;
+      }
+
+      const expense = { name: expenseName, amount: expenseAmount, category: expenseCategory };
+      expenses.push(expense);
+
+      updateExpenseList();
+      updateExpenseSummary();
+
+      // Clear input fields
+      document.getElementById("expenseName").value = "";
+      document.getElementById("expenseAmount").value = "";
+      document.getElementById("expenseCategory").selectedIndex = 0;
+    }
+
+    function updateExpenseList() {
+      const expenseList = document.getElementById("expenseList");
+      expenseList.innerHTML = "";
+      expenses.forEach((expense, index) => {
+        const expenseElement = document.createElement("div");
+        expenseElement.classList.add("expense");
+        expenseElement.innerHTML = `
+          <span>${expense.name}</span>
+          <span>${expense.amount}</span>
+          <span>${expense.category}</span>
+          <button onclick="deleteExpense(${index})">Delete</button>
+        `;
+        expenseList.appendChild(expenseElement);
+      });
+    }
+
+    function deleteExpense(index) {
+      expenses.splice(index, 1);
+      updateExpenseList();
+      updateExpenseSummary();
+    }
+
+    function updateExpenseSummary() {
+      const totalExpense = expenses.reduce((total, expense) => total + expense.amount, 0);
+      const expenseSummary = document.getElementById("expenseSummary");
+      expenseSummary.textContent = `Total Expenses: $${totalExpense.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
