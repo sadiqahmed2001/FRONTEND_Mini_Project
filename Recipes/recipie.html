@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <h1 align="center" style="background-color: burlywood;">Welcome TO Recipes Center-Online-Stall</h1>
+    <form action="storage">
+        <fieldset>
+            <legend align="center">General purpose information fill out carefully</legend>
+            <table align="center" style="background-color: beige;">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td>Purpose_Of_Visit</td>
+                    <td><input type="text" placeholder="Give Proper purpose of visiting"></td>
+                </tr>
+                <tr>
+                    <td>Are you Master Chef</td>
+                    <td><input type="text" placeholder="Yes Or No"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <br><br>
+    <hr>
+
+    <div align="center" style="background-color: antiquewhite;">
+        <label for="dish">Dish Name:</label>
+        <input type="text" placeholder="Enter your dish" id="dish">
+        <button id="get">Get</button>
+        <h3>Nichay To Dekho</h3>
+    </div>
+
+    <br><br><br><br>
+    <hr>
+
+    <div align="center" style="background-color: azure;">
+        <p>Dish name: <span id="dishname"></span></p>
+        <p>Ingredients: <span id="ing"></span></p>
+    </div>
+
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'ef6b15a96cmsh921ff8b61f7b985p17cea9jsna24db7a3c119',
+                'X-RapidAPI-Host': 'recipe-by-api-ninjas.p.rapidapi.com'
+            }
+        };
+
+        const dis = document.getElementById("dish");
+        const but = document.getElementById("get");
+        const dis2 = document.getElementById("dishname");
+        const ig = document.getElementById("ing");
+
+        const rec = (dish) => {
+            dis2.innerHTML = dish;
+            fetch('https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=' + dish, options)
+            .then((response) => {
+                console.log(response.status);
+                console.log(response.ok);
+                return response.json();
+            }).then((data) => {
+                console.log(data);
+                // for(var i=0;i<data.length;i++){
+                //     ig.innerHTML=ig.innerHTML+data[i].ingredients
+                // }
+                ig.innerHTML = data[1].ingredients;
+            });
+        };
+
+        but.addEventListener('click', (event) => {
+            event.preventDefault();
+            rec(dis.value);
+        });
+    </script>
+</body>
+</html>
