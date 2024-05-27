@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    background-color: brown;
+    text-align: center;
+    color: aliceblue;
+    padding: 10px;
+}
+#container {
+    text-align: center;
+}
+input[type="text"] {
+    border-width: 3px;
+    border-color: brown;
+    padding: 5px;
+    margin: 10px;
+}
+button {
+    color: brown;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}

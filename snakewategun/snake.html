@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Water Gun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            background-color: brown;
+            text-align: center;
+            color: aliceblue;
+            padding: 10px;
+        }
+        #container {
+            text-align: center;
+        }
+        input[type="text"] {
+            border-width: 3px;
+            border-color: brown;
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            color: brown;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snake Water Gun Game</h1>
+    <div id="container">
+        <b>Enter your choice:</b>
+        <input type="text" placeholder="Enter S, W, or G" id="userChoice">
+        <button onclick="play()">Play</button>
+        <div id="result"></div>
+    </div>
+    <br><br><br>
+    <div class="container" align="center">
+        <h1>For Lazy Person click below button for playing game</h1>
+        <div id="game">
+            <button onclick="play('s')">Snake</button>
+            <button onclick="play('w')">Water</button>
+            <button onclick="play('g')">Gun</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function play() {
+            var userChoice = document.getElementById("userChoice").value.toLowerCase();
+            var computerChoice = ['s', 'w', 'g'][Math.floor(Math.random() * 3)];
+
+            var result = '';
+
+            if (userChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if ((userChoice === 's' && computerChoice === 'w') || 
+                       (userChoice === 'w' && computerChoice === 'g') || 
+                       (userChoice === 'g' && computerChoice === 's')) {
+                result = "You win!";
+            } else {
+                result = "You lose!";
+            }
+
+            var userChoiceName;
+            var computerChoiceName;
+
+            switch (userChoice) {
+                case 's':
+                    userChoiceName = 'Snake';
+                    break;
+                case 'w':
+                    userChoiceName = 'Water';
+                    break;
+                case 'g':
+                    userChoiceName = 'Gun';
+                    break;
+            }
+
+            switch (computerChoice) {
+                case 's':
+                    computerChoiceName = 'Snake';
+                    break;
+                case 'w':
+                    computerChoiceName = 'Water';
+                    break;
+                case 'g':
+                    computerChoiceName = 'Gun';
+                    break;
+            }
+
+            document.getElementById('result').innerHTML = `You chose ${userChoiceName}, computer chose ${computerChoiceName}. ${result}`;
+        }
+    </script>
+</body>
+</html>
+
+
