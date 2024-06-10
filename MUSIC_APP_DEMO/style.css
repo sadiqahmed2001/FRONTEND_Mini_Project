@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #1DB954;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: center;
+}
+
+#player {
+    margin-top: 20px;
+}
+
+#current-track {
+    margin-bottom: 20px;
+}
+
+#album-art {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#track-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#track-list li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #007BFF;
+}
+
+#track-list li:hover {
+    text-decoration: underline;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
