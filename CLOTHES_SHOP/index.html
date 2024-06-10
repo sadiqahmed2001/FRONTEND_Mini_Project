@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clothes Shop</h1>
+        <form id="clothesForm">
+            <div class="item">
+                <label for="tshirt">T-shirt ($10.00):</label>
+                <input type="number" id="tshirt" name="tshirt" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="jeans">Jeans ($30.00):</label>
+                <input type="number" id="jeans" name="jeans" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="shoes">Shoes ($50.00):</label>
+                <input type="number" id="shoes" name="shoes" min="0" value="0">
+            </div>
+            <button type="button" id="generateBillButton">Generate Bill</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
