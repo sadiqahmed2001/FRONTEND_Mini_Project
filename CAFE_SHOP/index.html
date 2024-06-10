@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Cafe</h1>
+        <h2>Menu</h2>
+        <form id="menu-form">
+            <div class="menu-item">
+                <label for="coffee">Coffee ($3.00)</label>
+                <input type="number" id="coffee" name="coffee" min="0" value="0">
+            </div>
+            <div class="menu-item">
+                <label for="tea">Tea ($2.50)</label>
+                <input type="number" id="tea" name="tea" min="0" value="0">
+            </div>
+            <div class="menu-item">
+                <label for="sandwich">Sandwich ($5.00)</label>
+                <input type="number" id="sandwich" name="sandwich" min="0" value="0">
+            </div>
+            <div class="menu-item">
+                <label for="cake">Cake ($4.00)</label>
+                <input type="number" id="cake" name="cake" min="0" value="0">
+            </div>
+            <button type="button" onclick="generateBill()">Generate Bill</button>
+        </form>
+        <h2>Bill</h2>
+        <div id="bill"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
