@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cafe Shop</h1>
+        <form id="cafeForm">
+            <div class="item">
+                <label for="coffee">Coffee ($3.00):</label>
+                <input type="number" id="coffee" name="coffee" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="tea">Tea ($2.50):</label>
+                <input type="number" id="tea" name="tea" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="sandwich">Sandwich ($5.00):</label>
+                <input type="number" id="sandwich" name="sandwich" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="cake">Cake ($4.00):</label>
+                <input type="number" id="cake" name="cake" min="0" value="0">
+            </div>
+            <button type="button" id="generateBillButton">Generate Bill</button>
+        </form>
+        <div id="totalDisplay">Total: $0.00</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
