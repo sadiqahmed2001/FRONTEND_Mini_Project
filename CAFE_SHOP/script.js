@@ -5,7 +5,7 @@ function generateBill() {
         sandwich: 5.00,
         cake: 4.00
     };
-
+   
     const coffeeQty = parseInt(document.getElementById('coffee').value);
     const teaQty = parseInt(document.getElementById('tea').value);
     const sandwichQty = parseInt(document.getElementById('sandwich').value);
