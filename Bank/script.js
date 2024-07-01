@@ -1,4 +1,4 @@
-let balance = 1000;
+let balance = 1000;   
 
     function updateBalance() {
       document.getElementById("balanceAmount").textContent = balance.toFixed(2);
