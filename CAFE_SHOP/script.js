@@ -1,5 +1,5 @@
 function generateBill() {
-    const prices = {
+    const prices = {   
         coffee: 3.00,
         tea: 2.50,
         sandwich: 5.00,
